@@ -36,3 +36,8 @@ jobs:
             sudo yarn
             sudo yarn build
             pm2 reload all
+    # Checkout the repo 
+      - uses: actions/checkout@v3 
+        with: 
+          Default: ${{ github.repository }}
+        # Repository name with owner. For example, actions/checkout Default: ${{ github.repository }}
