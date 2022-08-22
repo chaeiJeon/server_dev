@@ -22,10 +22,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: google-github-actions/setup-gcloud@v0
-
-      # Runs a single command using the runners shell
-      - name: Pushes server_live repository
-        run: |
-          mkdir nownow
+      - name: Deploy
+        uses: chaeiJeon/server_live@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_SSH_ID }}
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+          port: ${{ secrets.REMOTE_SSH_PORT }}
+          script: |
+            cd /home/ubuntu
+            sudo git pull
+            sudo yarn
+            sudo yarn build
+            pm2 reload all
