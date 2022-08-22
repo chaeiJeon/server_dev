@@ -24,7 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run a multi-line script
-        uses: chaeiJeon/server_live@master
         env:
           host: ${{ secrets.REMOTE_IP }}
           username: ${{ secrets.REMOTE_SSH_ID }}
@@ -35,7 +34,7 @@ jobs:
           sudo yarn
           sudo yarn build
           pm2 reload all
-    - name: Push commit
+      - name: Push commit
         uses: chaeiJeon/server_live@master
         with:
           github_token: ${{secrets.CHAEIJEON_LSMK}}
