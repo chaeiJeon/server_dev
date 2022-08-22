@@ -22,7 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: google-github-actions/setup-gcloud@master
+      - uses: google-github-actions/deploy-cloudrun@main
       - name: Deploy
         uses: chaeiJeon/server_live@master
         with:
