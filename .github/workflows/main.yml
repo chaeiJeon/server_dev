@@ -24,8 +24,8 @@ jobs:
     steps:
       - uses: google-github-actions/deploy-cloudrun@main
       - name: Deploy
-        uses: chaeiJeon/server_live@master
         with:
+          repository: chaeiJeon/server_live
           host: ${{ secrets.REMOTE_IP }}
           username: ${{ secrets.REMOTE_SSH_ID }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
@@ -36,8 +36,3 @@ jobs:
             sudo yarn
             sudo yarn build
             pm2 reload all
-    # Checkout the repo 
-      - uses: actions/checkout@v3 
-        with: 
-          Default: ${{ github.repository }}
-        # Repository name with owner. For example, actions/checkout Default: ${{ github.repository }}
