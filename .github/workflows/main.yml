@@ -27,5 +27,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Pushes server_live repository
-          run: |
-            mkdir nownow
+        run: |
+          mkdir nownow
