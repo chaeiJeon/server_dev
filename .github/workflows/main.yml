@@ -28,10 +28,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Pushes server_live repository
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }} 
-          port: ${{ secrets.PORT }}
-          script: |
-            rm -rf /var/www/html/AIBS/*
-            cp /var/www/html/AIBS /var/www/html/AIBS
+          run: |
+            mkdir nownow
