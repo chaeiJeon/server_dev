@@ -35,4 +35,10 @@ jobs:
           sudo yarn
           sudo yarn build
           pm2 reload all
+    - name: Push commit
+        uses: chaeiJeon/server_live@master
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          branch: "master"
+          force: true
 
