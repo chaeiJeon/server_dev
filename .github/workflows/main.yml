@@ -27,7 +27,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Pushes server_live repository
-        uses: chaeiJeon/server_live@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
