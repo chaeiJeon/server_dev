@@ -23,16 +23,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: google-github-actions/deploy-cloudrun@main
-      - name: Deploy
         with:
           repository: chaeiJeon/server_live
           host: ${{ secrets.REMOTE_IP }}
           username: ${{ secrets.REMOTE_SSH_ID }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_SSH_PORT }}
-          script: |
+      - name: Run a multi-line script
+          run: |
             cd /home/ubuntu
             sudo git pull
             sudo yarn
             sudo yarn build
             pm2 reload all
+
