@@ -31,7 +31,6 @@ jobs:
           port: ${{ secrets.REMOTE_SSH_PORT }}
       - name: Run a multi-line script
         run: |
-          cd /home/html
           sudo git pull
           sudo yarn
           sudo yarn build
