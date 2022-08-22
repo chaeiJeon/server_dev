@@ -22,18 +22,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
       - name: Pushes server_live repository
         uses: chaeiJeon/server_live@master
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'server_dev'
-          destination-github-username: 'chaeiJeon'
-          destination-repository-name: 'server_live'
-          user-email: ahswn1031@gmail.com
-          target-branch: master
-        
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }} 
+          port: ${{ secrets.PORT }}
+          script: |
+            rm -rf /var/www/html/AIBS/*
+            cp /var/www/html/AIBS /var/www/html/AIBS
