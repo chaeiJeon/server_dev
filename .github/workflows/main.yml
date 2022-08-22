@@ -38,7 +38,7 @@ jobs:
     - name: Push commit
         uses: chaeiJeon/server_live@master
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{secrets.CHAEIJEON_LSMK}}
           branch: "master"
           force: true
 
